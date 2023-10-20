@@ -1,4 +1,6 @@
-const NewsCards = ({ title, author, url, date }) => {
+import { Link } from "react-router-dom";
+
+const NewsCards = ({ title, author, url, date, objectID }) => {
   return (
     <div className=" m-3 flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl border-solid border-2 border-stone-950">
       <div className="p-6">
@@ -23,9 +25,12 @@ const NewsCards = ({ title, author, url, date }) => {
         >
           Go To
         </a>
-        <a className="cursor-pointer select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+        <Link
+          to={"/details/" + objectID}
+          className="cursor-pointer select-none rounded-lg bg-red-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        >
           Read More
-        </a>
+        </Link>
       </div>
     </div>
   );

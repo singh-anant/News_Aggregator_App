@@ -12,6 +12,7 @@ const SearchedNewsContainer = () => {
       {newsObject.map((news) => (
         <NewsCards
           key={news?.objectID}
+          objectID={news?.objectID}
           title={news?.title}
           author={news?.author}
           url={news?.url}
