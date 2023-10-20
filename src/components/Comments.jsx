@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 
 /* function CommentList({ comment }) {
   const nestedComments = (comment.children || []).map((comment) => {
@@ -20,7 +21,7 @@ function CommentList({ comment }) {
   return (
     <div className="bg-gray-200 rounded-lg border-2 border-black shadow p-1 m-3 w-full ">
       <h1 className="text-base font-semibold">{comment?.author}</h1>
-      <p className="break-words">{comment?.text}</p>
+      <p className="break-words">{parse(comment?.text)}</p>
       <div className="flex items-center mt-2 text-lg">
         <p className="text-gray-600 text-sm">
           <span className="font-bold">Published At -</span>
