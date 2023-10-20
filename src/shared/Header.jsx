@@ -23,7 +23,7 @@ const Header = () => {
             textAlign="center"
             sx={{ flexGrow: 1 }}
           >
-            Welcome to Hacker News
+            Welcome to Hacker News 📄📄
           </Typography>
         </Toolbar>
       </AppBar>

@@ -1,16 +1,27 @@
 import React from "react";
 import "./App.css";
-import Header from "./shared/Header";
-import SearchBar from "./components/SearchBar";
-import SearchedNewsContainer from "./components/SearchedNewsContainer";
-
+import { Provider } from "react-redux";
+import store from "./utils/store";
+import NewsContainer from "./pages/NewsContainer";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import NewsDetailsContainer from "./pages/NewsDetailsContainer";
 const App = () => {
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <NewsContainer />,
+    },
+    {
+      path: "details/:id",
+      element: <NewsDetailsContainer />,
+    },
+  ]);
   return (
-    <div>
-      <Header />
-      <SearchBar />
-      <SearchedNewsContainer />
-    </div>
+    <Provider store={store}>
+      <div>
+        <RouterProvider router={appRouter} />
+      </div>
+    </Provider>
   );
 };
 

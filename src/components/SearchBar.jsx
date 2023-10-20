@@ -1,12 +1,16 @@
 // It will contain search bar and search button...
 import { useRef } from "react";
 import { SearchNews } from "../utils/SearchNews";
+import { useDispatch } from "react-redux";
+import { addNewsInObject } from "../utils/slices/newsSlice";
 
 const SearchBar = () => {
   const getSearchBarText = useRef(null);
+  const dispatch = useDispatch();
   const handleSearchButton = async () => {
     const getQuery = getSearchBarText?.current?.value;
     const newsObject = await SearchNews(getQuery);
+    dispatch(addNewsInObject(newsObject));
   };
 
   return (
